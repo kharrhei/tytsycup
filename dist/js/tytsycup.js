@@ -5,14 +5,11 @@
  * and open the template in the editor.
  */
 var i18n, theMap, theMapElement, theMarker, 
-        theMail = 'tytsycup<span style="display: none">some</span>&#0040;at&#0041;<span class="my-hidden">more</span>' + 'gmail.com',
+        //theMail = 'tytsycup<span style="display: none">some</span>&#0040;at&#0041;<span class="my-hidden">more</span>' + 'gmail.com',
+        theMail = 'tytsycup@gmail.com',
         tytsycup = {
         },
-        sponsorLinks = 'Hyundai tukee tätäkin turnausta:<br />' +
-                       '<a href="pdf/Hyundai_junioriturnaukset_2014.pdf" target="_new">Hyundai junioriturnaukset</a><br />' + 
-                       '<a href="pdf/Hyundai _A5_turnausilmoitus_2014.pdf" target="_new">Hyundai Turnausilmoitus</a><br />' +
-                       '<a href="pdf/Hyundai_jalkapallo_Brasilia_2014.pdf" target="_new">Hyundai Brasilia 2014</a><br />' +
-                       '<a href="pdf/Paavalmentajan_terveiset_20140320.pdf" target="_new">Päävalmentajan terveiset</a><br />',
+        sponsorLinks,
 	rules = '',
 	loremIpsum = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum odio velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec luctus rutrum leo, vel feugiat sem blandit quis. Pellentesque mollis et magna et vulputate. In sed quam et lacus pharetra sodales. Phasellus consectetur urna id molestie mollis. Nunc tristique fringilla nunc eu placerat. In a venenatis urna, vitae adipiscing sapien. Aliquam lorem urna, hendrerit in turpis eget, mollis convallis nulla. Donec ac diam luctus, interdum dui non, ullamcorper nibh. Cras sollicitudin nibh et dolor facilisis, at vulputate libero aliquam. Cras leo dui, scelerisque nec enim at, elementum bibendum nulla. Mauris turpis odio, dignissim sed enim ac, fringilla bibendum ipsum. Quisque ac nulla sed nibh pharetra vehicula id id augue.</p>' + 
             '<p>Quisque venenatis tincidunt risus, sed sagittis purus pharetra nec. Maecenas viverra ligula sit amet erat consequat tempus. Quisque tempus massa vel purus auctor, id suscipit orci pharetra. Maecenas mi leo, tempor ut scelerisque nec, molestie in purus. Donec massa erat, feugiat in felis eget, bibendum euismod turpis. In eget eros bibendum, fermentum turpis vel, ultrices felis. Quisque pretium pellentesque consequat. Phasellus arcu nunc, venenatis sit amet semper ac, vestibulum vitae erat. Aliquam varius elit nec leo vulputate scelerisque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse lorem lectus, gravida non est at, varius venenatis lorem. Cras quis velit metus. Quisque sit amet porttitor risus, ut consequat erat. Pellentesque lacinia nec risus at venenatis. Nunc fermentum dui consectetur felis euismod commodo. Curabitur lobortis, nulla eu dictum lobortis, lacus erat varius odio, ac ultricies neque nisl vitae diam.</p>' +
@@ -197,6 +194,16 @@ var i18n, theMap, theMapElement, theMarker,
                 fi_FI: 'Tulokset',
                 en_GB: 'Results',
                 sv_SE: 'Resultat'
+            },
+            MENU_RESULTS_2010: {
+                fi_FI: '2010 syntyneet',
+                en_GB: 'Results / 2010',
+                sv_SE: 'Resultat / 2010'
+            },
+            MENU_RESULTS_2011: {
+                fi_FI: '2011-12 syntyneet',
+                en_GB: 'Results / 2011-12',
+                sv_SE: 'Resultat / 2011-12'
             },
             HEADING_ABOUT_TOURNAMENT: {
                 fi_FI: 'Turnaus',
@@ -644,9 +651,13 @@ var i18n, theMap, theMapElement, theMarker,
             name: 'ResultTableTeam',
             tagName: 'tr'
         }),
-        ResultsView: my.view.View.extend({
-            name: 'Results',
-            title: tytsycup.localization.GLOBAL.MENU_Results,
+        Results2010View: my.view.View.extend({
+            name: 'Results2010',
+            title: tytsycup.localization.GLOBAL.MENU_RESULTS_2010,
+        }),
+        Results2011View: my.view.View.extend({
+            name: 'Results2011',
+            title: tytsycup.localization.GLOBAL.MENU_RESULTS_2011,
         }),
         TweetsView: my.view.View.extend({
             name: 'Tweets',
@@ -672,7 +683,8 @@ var i18n, theMap, theMapElement, theMarker,
     my.app.registerView(tytsycup.view.MenuView);
     my.app.registerView(tytsycup.view.AboutView);
     my.app.registerView(tytsycup.view.MainView);
-    my.app.registerView(tytsycup.view.ResultsView);
+    my.app.registerView(tytsycup.view.Results2010View);
+    my.app.registerView(tytsycup.view.Results2011View);
     my.app.registerView(tytsycup.view.TweetsView);
 //    my.app.registerView(tytsycup.view.TweetsOnlineView);
 //    my.app.registerView(tytsycup.view.LandingView);

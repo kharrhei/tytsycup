@@ -147,8 +147,11 @@
     <div class="prev"></div>
     <div class="next"></div>
 </script>
-<script id="tytsycup-ResultsView" type="text/template">
+<script id="tytsycup-Results2010View" type="text/template">
     <iframe class="tytsycup-ResultsView-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSJZabozPI_YBfnuwEVtEKrQZBHdxc4R_p9fY1KgH3nl7ssBaPeuM_fAJtjIicld-k5-HoRLzR3pIbs/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false"></iframe>
+</script>
+<script id="tytsycup-Results2011View" type="text/template">
+    <iframe class="tytsycup-ResultsView-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSJZabozPI_YBfnuwEVtEKrQZBHdxc4R_p9fY1KgH3nl7ssBaPeuM_fAJtjIicld-k5-HoRLzR3pIbs/pubhtml?gid=1008855225&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false"></iframe>
 </script>
 <script id="tytsycup-MainView" type="text/template">
     
@@ -163,19 +166,28 @@
         <div class="row">
           <div class="col-md-12" style="text-align: center;">
             <a class="btn btn-default btn-lg my-Localized" code="MENU_ABOUT" href="#./About/"></a>
-            <a class="btn btn-default btn-lg my-Localized" code="MENU_RESULTS" href="#./Results/"></a>
+            <a class="btn btn-default btn-lg my-Localized" code="MENU_RESULTS_2010" href="#./Results2010/"></a>
+              <a class="btn btn-default btn-lg my-Localized" code="MENU_RESULTS_2011" href="#./Results2011/"></a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12" style="text-align: center;">
+              Tytsy Cup järjestetään sunnuntaina 22.4.2018 klo 10 alkaen
+              Kaarinassa, <a href="https://www.google.fi/maps/place/Valkeavuoren+koulu/@60.4063604,22.3838327,15z/data=!4m5!3m4!1s0x0:0xa40c65182876956f!8m2!3d60.4063604!4d22.3838327" target="_new">Valkeavuoren KHT:llä</a>
+              Voivalantie 7-9, Kaarina.
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12" style="text-align: center;">
+          <div class="row">
+              <div class="col-md-12" style="text-align: center;">
+              </div>
           </div>
-        </div>
         <div class="row">
           <div class="col-md-12" style="text-align: center;">
+              Kaarinan nappuloiden 2010-syntyneiden tyttöjoukkue järjestää
+              Tytsy Cup:n 2010-2012 syntyneiden tyttöjoukkueille.
+              Turnaus on yksipäiväinen.
+              Jokainen joukke pelaa 4 peliä, joiden peliaika on 20 min/peli.
+              Kaikki ottelut pelataan KHT keinonurmella.
           </div>
         </div>
         <div class="row">
@@ -212,7 +224,14 @@
           <ul class="nav navbar-nav">
             <li><a href="#./Main/"           class="my-Localized my-MenuItem my-MenuItem-Main"          code="MENU_MAIN">Pääsivu</a></li>
             <li><a href="#./About/"          class="my-Localized my-MenuItem my-MenuItem-About"         code="MENU_ABOUT">Tietoja</a></li>
-            <li><a href="#./Results/"   class="my-Localized my-MenuItem my-MenuItem-Results"  code="MENU_RESULTS">Tulokset</a></li>
+              <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="my-Localized" code="MENU_RESULTS"></span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><a href="#./Results2010/"  class="my-Localized my-MenuItem my-MenuItem-Results2010"     code="MENU_RESULTS_2010">2010 syntyneet</a></li>
+                  <li><a href="#./Results2011/"      class="my-Localized my-MenuItem my-MenuItem-Results2011"         code="MENU_RESULTS_2011">2011 syntyneet</a></li>
+              </ul>
+              </li>
+            <!--<li><a href="#./Results/"   class="my-Localized my-MenuItem my-MenuItem-Results"  code="MENU_RESULTS">Tulokset</a></li>-->
             <li><a href="#./Tweets/"           class="my-Localized my-MenuItem my-MenuItem-Tweets"><img src="img/tweets_orange.png" width="18" height="17" border="0"></a></li>
           </ul>
         </div><!--/.navbar-collapse -->
@@ -244,13 +263,12 @@
       -->
       <div class="row">
         <div class="col-lg-12">
-            <h3 class="my-Localized" code="HEADING_ABOUT_RULES"></h3>
             <p><b>Järjestäjä:</b> KaaNa Tytöt 2010</p>
 			<p><b>Aika:</b> 22.4.2018 (sunnuntai) klo 10 alkaen</p>
 			<p><b>Pelipaikat</b></p>
 			<p><a href="https://www.google.fi/maps/place/Valkeavuoren+koulu/@60.4063604,22.3838327,15z/data=!4m5!3m4!1s0x0:0xa40c65182876956f!8m2!3d60.4063604!4d22.3838327" target="_new">Valkeavuoren KHT, Kaarina</a></p>
 			<p>Osoite on Voivalantie 7-9, Kaarina. Kaikki pelit tullaan pelaamaan tekonurmella.</p>
-			<p><b>Yleistä</b></p> 
+			<p><b>Säännöt</b></p>
 			<p>Turnauksessa noudatetaan <a href="https://www.palloliitto.fi/sites/default/files/kaikki_pelaa_saannot_2018_web.pdf" target="_new">Kaikki Pelaa –sääntöjä(Säännöt 2018)</a>. Jos muuta ei ole erikseen mainittu, noudatetaan Suomen Palloliiton (SPL) sääntöjä.</p>
 			<p><b>Sarjat</b></p>
 			<p>Turnauksessa on kaksi sarjaa:  <ul><li>2010 syntyneet</li><li>2011-2012 syntyneet</li></ul></p>
@@ -258,26 +276,16 @@
 			<p><b>Pelien määrä</b></p>
 			<p>Jokaiselle joukkueelle tulee 4 peliä. Yksi peli on 1 x 20 minuuttia.</p>
 
-			<p><b>Turnauksen pelitapa:</b></p> 
-			<p>Turnaus pelataan kahdessa (2) viiden (5) joukkueen lohkossa, jossa pelataan yksinkertaisen sarja. Järjestys lohkoissa määräytyy pisteiden mukaan siten, että eniten pisteitä saanut joukkue on voittaja jne. Tasapisteiden sattuessa ratkaistaan järjestys seuraavasti:</p>
-			<ol>
-                            <li>Kaikkien tasapisteisiin päätyneiden joukkueiden keskinäisten ottelujen: pisteet, maaliero ja tehdyt maalit</li> 
-                            <li>Kaikkien otteluiden maaliero</li> 
-                            <li>Kaikkien otteluiden tehtyjen maalien lukumäärä. </li>
-                            <li>Arpa</li>
-                        </ol> 
-			<p>Jos peli päättyi tasan sijoituspelissä, ottelu ratkaistaan välittömästi varsinaisen peliajan jälkeen rangaistuspotkukilpailulla, joka suoritetaan 3 pelaajalla. Mikäli tilanne on edelleen tasan, niin jatketaan kerrasta poikki menetelmällä eli molemmista joukkueista 1 laukoja kerrallaan ratkaisuun asti. Joukkueiden 3 ensimmäistä laukojaa ei saa ampua uudelleen ennen kuin kaikki joukkueen pelaajat on suorittanut rangaistuspotkun. Rangaistuspotkukilpailuun saavat osallistua pelin loppuessa myös vaihdossa olleet pelaajat.</p> 
-
 
 			<p><b>Palkinnot</b></p>
 			<p>Jokainen joukkue palkitaan.</p>
 
 			<p><b>Palvelut</b></p> 
 			<p>Turnausalueella toimii buffetti, jossa on tarjolla kahvia, virvokkeita ja leivonnaisia sekä lisäksi arpajaiset.</p>
-
+            <!--
 			<p><b>Pukukoppi</b></p> 
 			<p>Käytössä on pukukoppeja (4), joten kaikille ei ole omaa koppia. Suihkut (8) ja vessat (4) ovat pukukoppien yhteydessä.</p>
-
+            -->
 
 			<p><b>Ilmoittautuminen</b></p> 
 			<p>Ilmoittautuminen tapahtuu sähköpostitse <a href="mailto:tytsycup@gmail.com"><ins class="my-Localized" code="MAIL_ADDRESS"></ins></a> 1.3.2018 mennessä<p>
@@ -291,7 +299,7 @@
 			<p><b>Lisätiedot:</b></p> 
 			<p>Teemu Tsernov<br />
 			044-3034795<br />
-			<ins class="my-Localized" code="MAIL_ADDRESS"></ins></p>
+			<a href="mailto:tytsycup@gmail.com"><ins class="my-Localized" code="MAIL_ADDRESS"></ins></a></p>
         </div>
       </div>
       <div class="row">
