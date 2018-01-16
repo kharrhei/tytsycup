@@ -1,2 +1,2 @@
 # tytsycup
-Tytsy Cup home page
+Tytsy Cup homepage

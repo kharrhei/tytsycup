@@ -1,0 +1,321 @@
+﻿<!-- placeholder for generic implementation -->
+
+<script id="my-ModalView" type="text/template">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close my-CancelButton" -removed-data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h1 id="myModallLabel" class="my-ModalView-title"></h1>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                    </div>
+                </div>
+                <@= compiledTemplate @>
+            </div>
+            <div class="modal-footer">
+                <span class="my-ErrorInfo"></span>
+                <button class="btn btn-default btn btn-info my-Localized my-ApplyButton my-hidden" type="button" code="APPLY"></button>
+                <button class="btn btn-default btn btn-info my-Localized my-SaveButton my-hidden" type="button" code="SAVE"></button>
+                <button class="btn btn-default btn btn-info my-Localized my-CancelButton my-hidden" type="button" code="CANCEL"></button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="my-ModalView-blocker my-hidden">
+        
+    </div>
+</script>
+<script id="my-PopoverView" type="text/template">
+    <div class="popover bottom out" >
+        <div class="arrow arrow-left"></div>
+        <h3 class="popover-title my-hidden"></h3>
+        <div class="popover-content"></div>
+    </div>
+</script>
+<script id="my-ModalProgressView" type="text/template">
+    <div class="row">
+        <div class="col-md-12 my-ModalProgressView-message"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-12 my-ModalProgressView-progress">&nbsp;</div>
+    </div>
+    <div class="row">
+    
+        <div class="col-12 col-md-12 my-ModalProgressView-progress">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                    <span class="sr-only my-ModalProgressView-srProgress"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="my-ModalMessageView" type="text/template">
+    <div class="row">
+        <div class="col-md-12 my-ModalMessage-message"></div>
+    </div>
+</script>
+<script id="my-UploadButton" type="text/template">
+    <form target="my-uploadFrame" enctype="multipart/form-data" action="<@= url @>" method="post">
+        <div class="my-UploadButtonWrapper"><button class="btn btn-default <@= extraClassNames @> my-Localized" code="<@= code @>"></button><input name="file" type="file" class="my-UploadFileInput" /></div>
+    </form>
+</script><!-- placeholder for my.view.attribute implementation -->
+
+<script id="my-TextEditAttributeView" type="text/template">
+    <div class="input-group">
+      <span class="input-group-addon my-AttributeStatus glyphicon glyphicon-ok"></span>
+      <input type="text" class="form-control my-Input">
+    </div>
+</script>
+
+<script id="my-TextAreaEditAttributeView" type="text/template">
+    <div class="input-group">
+      <span class="input-group-addon my-AttributeStatus glyphicon glyphicon-ok"></span>
+      <textarea class="form-control my-Input"></textarea>
+    </div>
+</script>
+
+<script id="my-BreadcrumbsAttributeView" type="text/template">
+    
+</script>
+
+<script id="my-EnumerationEditAttributeView" type="text/template">
+    <div class="input-group">
+      <span class="input-group-addon my-AttributeStatus glyphicon glyphicon-ok"></span>
+      <select class="form-control my-Input"/>
+    </div>
+</script>
+
+<script id="my-PasswordEditAttributeView" type="text/template">
+    <div class="input-group">
+      <span class="input-group-addon my-AttributeStatus glyphicon glyphicon-ok"></span>
+      <input type="password" class="form-control my-Input">
+    </div>
+</script>
+<script id="my-BooleanEditAttributeView" type="text/template">
+    <div class="input-group">
+      <span class="input-group-addon my-AttributeStatus glyphicon glyphicon-ok"></span>
+      <span class="input-group-btn" style="width: 100%">
+        <button style="float: left;" class="btn btn-default" type="button"><input type="checkbox" class="checkbox  my-Input"></button>
+      </span>
+      <!--
+      <button class="btn" click="void(0);"><input class="checkbox my-Input" type="checkbox"/></button>
+      -->
+    </div>
+</script>
+<script id="my-TextAttributeView" type="text/template">
+</script>
+<script id="my-DateAttributeView" type="text/template">
+</script>
+<script id="my-ImageAttributeView" type="text/template">
+    <img class="img-responsive" src="" />
+    
+</script>
+<script id="my-ImageEditAttributeView" type="text/template">
+    <!--<div class="fileupload fileupload-new" data-provides="fileupload">
+        <div class="fileupload-new thumbnail" style="width: 80px; height: 50px; background-color: light-gray; text-valign: middle;">Preview</div>
+        <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+        <span class="btn btn-default btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="file" type="file" /></span>
+            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+        </div>
+    -->
+        <img class="img-responsive" src="" />
+    <div class="my-UploadButtonContainer">
+        <form target="my-uploadFrame" enctype="multipart/form-data" action="<@= this.uploadPath @>" method="post">
+            <div class="my-UploadButtonWrapper"><button class="btn btn-default btn-inverse  my-Localized <@= this.buttonExtraClassNames @>" code="<@= this.buttonCode @>"></button><input name="file" type="file" class="my-UploadFileInput" /></div>
+        </form>
+    </div>
+</script>
+<script id="my-EnumerationAttributeView" type="text/template">
+</script>
+<script id="my-BooleanAttributeView" type="text/template">
+</script>
+<script id="demo-AboutView" type="text/template">
+    <h1>About my.js</h1>
+</script>
+
+<script id="demo-MainView" type="text/template">
+    <h1>myweb.fi - home of <a href="#./About/">my.js</a></h1>
+</script>
+
+<!-- placeholder for templates -->
+<script id="tytsycup-OnlineView" type="text/template">
+    <div class="prev"></div>
+    <div class="next"></div>
+</script>
+<script id="tytsycup-ResultsView" type="text/template">
+    <iframe class="tytsycup-ResultsView-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSJZabozPI_YBfnuwEVtEKrQZBHdxc4R_p9fY1KgH3nl7ssBaPeuM_fAJtjIicld-k5-HoRLzR3pIbs/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false"></iframe>
+</script>
+<script id="tytsycup-MainView" type="text/template">
+    
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-12" style="text-align: center;">
+                <h1 class="my-Localized" code="MENU_TITLE"></h1>
+                <p class="my-Localized" code="MAIN_WELCOME_TEXT"></p>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <a class="btn btn-default btn-lg my-Localized" code="MENU_ABOUT" href="#./About/"></a>
+            <a class="btn btn-default btn-lg my-Localized" code="MENU_RESULTS" href="#./Results/"></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+          </div>
+        </div>
+
+
+        </div>
+    </div>
+
+    <div class="container tytsycup-MainView">
+      <div class="row">
+        <div class="col-md-12">
+            <img class="img-responsive" src="img/tytsycup.png" />
+        </div>
+      </div>
+    </div>
+</script>
+
+<script id="tytsycup-MenuView" type="text/template">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <img class="tytsycup-MenuView-logo" src="img/logo.png" width="18" height="17" border="0">
+            <a class="navbar-brand my-Localized" href="#" code="MENU_TITLE">Tytsy Cup 2018</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#./Main/"           class="my-Localized my-MenuItem my-MenuItem-Main"          code="MENU_MAIN">Pääsivu</a></li>
+            <li><a href="#./About/"          class="my-Localized my-MenuItem my-MenuItem-About"         code="MENU_ABOUT">Tietoja</a></li>
+            <li><a href="#./Results/"   class="my-Localized my-MenuItem my-MenuItem-Results"  code="MENU_RESULTS">Tulokset</a></li>
+            <li><a href="#./Tweets/"           class="my-Localized my-MenuItem my-MenuItem-Tweets"><img src="img/tweets_orange.png" width="18" height="17" border="0"></a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+</script>
+
+<script id="tytsycup-AboutView" type="text/template">
+    <div class="container">
+      <!-- Example row of columns -->
+      <h1 class="my-Localized" code="MENU_ABOUT"></h1>
+      <!--
+      <div class="row">
+        <div class="col-lg-4">
+            <h3 class="my-Localized" code="HEADING_ABOUT_TOURNAMENT"></h3>
+            <p  class="my-Localized" code="CONTENT_ABOUT_TOURNAMENT" ></p>
+        </div>
+        
+        <div class="col-lg-4">
+            <h3 class="my-Localized" code="HEADING_ABOUT_SCHEDULE"></h3>
+            <p  class="my-Localized" code="CONTENT_ABOUT_SCHEDULE"></p>
+        </div>
+        <div class="col-lg-4">
+            <h3 class="my-Localized" code="HEADING_ABOUT_LOCATION"></h3>
+            <p  class="my-Localized" code="CONTENT_ABOUT_LOCATION"></p>
+        </div>
+      </div>
+      -->
+      <div class="row">
+        <div class="col-lg-12">
+            <h3 class="my-Localized" code="HEADING_ABOUT_RULES"></h3>
+            <p><b>Järjestäjä:</b> KaaNa Tytöt 2010</p>
+			<p><b>Aika:</b> 22.4.2018 (sunnuntai) klo 10 alkaen</p>
+			<p><b>Pelipaikat</b></p>
+			<p><a href="https://www.google.fi/maps/place/Valkeavuoren+koulu/@60.4063604,22.3838327,15z/data=!4m5!3m4!1s0x0:0xa40c65182876956f!8m2!3d60.4063604!4d22.3838327" target="_new">Valkeavuoren KHT, Kaarina</a></p>
+			<p>Osoite on Voivalantie 7-9, Kaarina. Kaikki pelit tullaan pelaamaan tekonurmella.</p>
+			<p><b>Yleistä</b></p> 
+			<p>Turnauksessa noudatetaan <a href="https://www.palloliitto.fi/sites/default/files/kaikki_pelaa_saannot_2018_web.pdf" target="_new">Kaikki Pelaa –sääntöjä(Säännöt 2018)</a>. Jos muuta ei ole erikseen mainittu, noudatetaan Suomen Palloliiton (SPL) sääntöjä.</p>
+			<p><b>Sarjat</b></p>
+			<p>Turnauksessa on kaksi sarjaa:  <ul><li>2010 syntyneet</li><li>2011-2012 syntyneet</li></ul></p>
+
+			<p><b>Pelien määrä</b></p>
+			<p>Jokaiselle joukkueelle tulee 4 peliä. Yksi peli on 1 x 20 minuuttia.</p>
+
+			<p><b>Turnauksen pelitapa:</b></p> 
+			<p>Turnaus pelataan kahdessa (2) viiden (5) joukkueen lohkossa, jossa pelataan yksinkertaisen sarja. Järjestys lohkoissa määräytyy pisteiden mukaan siten, että eniten pisteitä saanut joukkue on voittaja jne. Tasapisteiden sattuessa ratkaistaan järjestys seuraavasti:</p>
+			<ol>
+                            <li>Kaikkien tasapisteisiin päätyneiden joukkueiden keskinäisten ottelujen: pisteet, maaliero ja tehdyt maalit</li> 
+                            <li>Kaikkien otteluiden maaliero</li> 
+                            <li>Kaikkien otteluiden tehtyjen maalien lukumäärä. </li>
+                            <li>Arpa</li>
+                        </ol> 
+			<p>Jos peli päättyi tasan sijoituspelissä, ottelu ratkaistaan välittömästi varsinaisen peliajan jälkeen rangaistuspotkukilpailulla, joka suoritetaan 3 pelaajalla. Mikäli tilanne on edelleen tasan, niin jatketaan kerrasta poikki menetelmällä eli molemmista joukkueista 1 laukoja kerrallaan ratkaisuun asti. Joukkueiden 3 ensimmäistä laukojaa ei saa ampua uudelleen ennen kuin kaikki joukkueen pelaajat on suorittanut rangaistuspotkun. Rangaistuspotkukilpailuun saavat osallistua pelin loppuessa myös vaihdossa olleet pelaajat.</p> 
+
+
+			<p><b>Palkinnot</b></p>
+			<p>Jokainen joukkue palkitaan.</p>
+
+			<p><b>Palvelut</b></p> 
+			<p>Turnausalueella toimii buffetti, jossa on tarjolla kahvia, virvokkeita ja leivonnaisia sekä lisäksi arpajaiset.</p>
+
+			<p><b>Pukukoppi</b></p> 
+			<p>Käytössä on pukukoppeja (4), joten kaikille ei ole omaa koppia. Suihkut (8) ja vessat (4) ovat pukukoppien yhteydessä.</p>
+
+
+			<p><b>Ilmoittautuminen</b></p> 
+			<p>Ilmoittautuminen tapahtuu sähköpostitse <a href="mailto:tytsycup@gmail.com"><ins class="my-Localized" code="MAIL_ADDRESS"></ins></a> 1.3.2018 mennessä<p>
+
+			<p><b>Turnausmaksu</b></p> 
+			<p>Turnauksen turnausmaksu 100 euroa per joukkue. Maksuohjeet tulevat sähköpostilla ilmoittautumisen jälkeen.</p>
+
+
+
+
+			<p><b>Lisätiedot:</b></p> 
+			<p>Teemu Tsernov<br />
+			044-3034795<br />
+			<ins class="my-Localized" code="MAIL_ADDRESS"></ins></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+            <h3 class="my-Localized" code="HEADING_ABOUT_MAP"></h3>
+            <br />
+            <a class="btn btn-default btn-info tytsycup-AboutView-GoogleMapLink my-Localized" target="_new" href="//maps.google.com/" code="CONTENT_ABOUT_MAPLINK"></a>
+            <br />
+            <br />
+            <div  class="tytsycup-AboutView-GoogleMap"></div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-12">
+            <!--
+            <h3 class="my-Localized" code="HEADING_ABOUT_SPONSORS"></h3>
+            <p  class="my-Localized" code="CONTENT_ABOUT_SPONSORS"></p>
+            -->
+        </div>
+      </div>
+    </div>
+</script>
+
+<script id="tytsycup-TweetsView" type="text/template">
+            
+</script>
