@@ -9,7 +9,11 @@
         <title>Tytsy Cup 2018</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
+        <meta property="og:url"           content="https://tytsycup.netlify.com/" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Tytsy Cup 2018" />
+        <meta property="og:description"   content="Tytsy Cup 2018 turnauksen kotisivut" />
+        <meta property="og:image"         content="https://tytsycup.netlify.com/img/tytsycup.png" />
         <link rel="stylesheet" href="themes/tytsycup.css" />
         <style>
             body {
@@ -20,10 +24,7 @@
 
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-    
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div id="my-menu"></div>
     <div id="my-container"></div>
@@ -44,10 +45,25 @@
 
     <footer>
         <p>&copy; <a href="http://www.kaana.fi/joukkueet/tytot/tytot-2010/" target="_new">KaaNa Tytöt 2010</a> </p>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/fi_FI/sdk.js#xfbml=1&version=v2.11';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fb-like"
+             data-href="https://tytsycup.netlify.com"
+             data-layout="standard"
+             data-action="like"
+             data-show-faces="true">
+        </div>
     </footer>
    <!-- /container --> 
     <div id="my-templates" class="my-hidden"></div>
-    
+
         <script src="js/my.js"></script>
         <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAZSOgTw8UlbuEsQ7AtPknNGrByMV_8MKU&sensor=false">
         </script>
